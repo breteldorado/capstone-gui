@@ -152,3 +152,10 @@ br {
   background-color: green;
   color: white;
 }
+.chart-container {
+  width: 600px;
+  height: 300px;
+  text-align: center;
+  display: block;
+  margin: auto;
+}

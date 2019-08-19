@@ -11,7 +11,7 @@ computer or mobile device. The "about" and "contact" buttons of the header are n
 Control System. As of 8/18/2019, this page and is just used for design purposes.
 From this page, the user can Import a new schedule file (.csv), export a current
 schedule file to modify it using excel, and download the schedule file template.
-Other options include importing and exporting the configuration procedure file (.json)
+Other options include importing and exporting the configuration procedure file (.json or .txt)
 and downloading the configuration file template. At last, for an easier user experience,
 I would hope to implement an edit schedule procedure from the website to the CCU.
 
@@ -25,6 +25,6 @@ This page will serve as a debugging page to display all the raw data a coming fr
 It will let you know if the sensors are online, what are they reading, and how fast they are programmed to read. More information will be released as we progress through the project.
 
 ## Short-Term To Do (updated 8/18/2019)
-- [ ] Implement Graphs to display 10 random values in the last 10 seconds.
+- [x] Implement Graphs to display x random values in the last x seconds on diagnostics page. (Completed 8/19/2019)
 - [ ] Run 6 graphs simultaneously to do the above function.
 - [ ] Implement a download function using JavaScript to download a random .txt file. Same process for .csv, then to .json.
