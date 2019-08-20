@@ -1,5 +1,12 @@
-const CHART = document.getElementById("myChart");
-console.log(CHART);
+const CHART1 = document.getElementById("zoneSensor-1");
+const CHART2 = document.getElementById("zoneSensor-2");
+const CHART3 = document.getElementById("zoneSensor-3");
+const CHART4 = document.getElementById("zoneSensor-4");
+const CHART5 = document.getElementById("ahuSensor-1");
+const CHART6 = document.getElementById("ahuSensor-2");
+
+let SENSORS = ["zsu1", "zsu2"]
+//let datasets = ["zsu1", "zsu2", "zsu3", "zsu4", "ahu1", "ahu2"]
 
 var i = 0; //loop counter
 var tempHistory=[];
@@ -17,35 +24,65 @@ var options = {
         }]
     }
 };
-var data = {
-    //labels: logTimeTemp.timeHistory,
+
+
+var data1 = {
     datasets: [
         {
-            label: "Temperature",
+            label: "ZSU 1 Temperature",
             fill: false,
             borderColor: "#bae755",
-            //borderDash: [5, 5],
             backgroundColor: "#e755ba",
             pointBackgroundColor: "#e755ba",
             pointBorderColor: "#55bae7",
             pointHoverBackgroundColor: "#55bae7",
             pointHoverBorderColor: "#55bae7",
-            pointRadius: 5,
-            //data: logTimeTemp.tempHistory
+            pointRadius: 5
+
         }
       ]
     };
 
-  var lineChart = new Chart(CHART, {
+    var data2 = {
+        datasets: [
+            {
+                label: "ZSU 2 Temperature",
+                fill: false,
+                borderColor: "#bae755",
+                backgroundColor: "#e755ba",
+                pointBackgroundColor: "#e755ba",
+                pointBorderColor: "#55bae7",
+                pointHoverBackgroundColor: "#55bae7",
+                pointHoverBorderColor: "#55bae7",
+                pointRadius: 5,
+            }
+          ]
+        };
+
+  var lineChart1 = new Chart(CHART1, {
     type: 'line',
-    data: data,
+    data: data1,
     options: options
   });
-  function removeData() {
-    lineChart.data.labels.splice(0, 1);
-    lineChart.data.datasets[0].data.splice(0, 1);
-    lineChart.update();
+  var lineChart2 = new Chart(CHART2, {
+    type: 'line',
+    data: data2,
+    options: options
+  });
+
+
+  function removeData(chart) {
+    chart.data.labels.splice(0, 1);
+    chart.data.datasets[0].data.splice(0, 1);
+    chart.update();
   }
+// function addData(chart, label, data) {
+//     chart.data.labels.push(label);
+//     chart.data.datasets.forEach((dataset) => {
+//         dataset.data.push(data);
+//     });
+//     chart.update();
+// }
 function addData(chart, label, data) {
     chart.data.labels.push(label);
     chart.data.datasets.forEach((dataset) => {
@@ -67,25 +104,22 @@ function sleep(ms){
 async function wait(ms){
   await sleep(ms);
 }
-function logTimeTemp(){
+function logTimeTemp(sensor){
   var currentTemp;
+  var currentTemp2;
   var currentTime;
-  //window.tempHistory[i] = getTemp();
-  //window.timeHistory[i] = getCurrentTime();
-  currentTemp = getTemp();
+  currentTemp = getTemp(); //temp 1
+  currentTemp2 = getTemp(); //temp2
   currentTime = getCurrentTime();
-
-  //console.log(timeHistory);
-  //console.log(tempHistory);
-  //console.log(i);
   if (window.i > 4){
-    addData(lineChart, currentTime, currentTemp);
-    removeData(); //should remove element index 0
-    //await sleep(1000);
+    addData(lineChart1, currentTime, currentTemp);
+    removeData(lineChart1);
+    addData(lineChart2, currentTime, currentTemp2);
+    removeData(lineChart2);
   } else {
-    addData(lineChart, currentTime, currentTemp);
-    //await sleep(1000);
+    addData(lineChart1, currentTime, currentTemp);
+    addData(lineChart2, currentTime, currentTemp2);
   }
   window.i++;
   }
-  var myRefresh = setInterval(logTimeTemp, 1000);
+  var myRefresh = setInterval(logTimeTemp, 5000);
