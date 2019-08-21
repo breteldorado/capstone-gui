@@ -147,37 +147,6 @@ lineChart[5] = new Chart(CHART6, {
   data: data6,
   options: options
 });
-  // var lineChart1 = new Chart(CHART1, {
-  //   type: 'line',
-  //   data: data1,
-  //   options: options
-  // });
-  // var lineChart2 = new Chart(CHART2, {
-  //   type: 'line',
-  //   data: data2,
-  //   options: options
-  // });
-  // var lineChart3 = new Chart(CHART3, {
-  //   type: 'line',
-  //   data: data3,
-  //   options: options
-  // });
-  // var lineChart4 = new Chart(CHART4, {
-  //   type: 'line',
-  //   data: data4,
-  //   options: options
-  // });
-  // var lineChart5 = new Chart(CHART5, {
-  //   type: 'line',
-  //   data: data5,
-  //   options: options
-  // });
-  // var lineChart6 = new Chart(CHART6, {
-  //   type: 'line',
-  //   data: data6,
-  //   options: options
-  // });
-
 function removeData(chart) { //removes element 1 of chart
   chart.data.labels.splice(0, 1);
   chart.data.datasets[0].data.splice(0, 1);
