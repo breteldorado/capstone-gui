@@ -153,9 +153,16 @@ br {
   color: white;
 }
 .chart-container {
+  text-align: center;
+}
+.chart-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+.chart-container li {
   width: 600px;
   height: 300px;
-  text-align: center;
-  display: inline-block;
-  margin: auto;
+  margin: 25px 5px 45px;
 }
