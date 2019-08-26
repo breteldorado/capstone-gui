@@ -173,7 +173,7 @@ function sleep(ms){
 async function wait(ms){
   await sleep(ms);
 }
-function logTimeTemp(sensor){
+function logTimeTemp(){
   var currentTemp = [];
   var currentTime;
   var i = 0;
@@ -195,4 +195,4 @@ function logTimeTemp(sensor){
   window.i++;
   }
   logTimeTemp();
-  var myRefresh = setInterval(logTimeTemp, 5000);
+  var myRefresh = setInterval(logTimeTemp, 5000); //repeats the function every 5 seconds
