@@ -156,13 +156,33 @@ br {
   text-align: center;
 }
 .chart-container ul {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   margin: auto;
-  justify-content: center;
+  justify-content:  center;
 }
 .chart-container li {
   width: 600px;
   height: 300px;
   margin: 25px 5px 45px;
+  display:none;
+}
+button: focus {
+  background-color: green;
+  color: white;
+}
+button{
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+}
+.selector-container ul {
+  display:flex;
+  justify-content: center;
+
 }
