@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -10,134 +10,159 @@
 
 </head>
 <body>
-	<div class="container">
-		<header>
-			<a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
+    <div class="container">
+        <header>
+            <a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
 
-				<nav>
-					<!--
-					<a href="#" class="hide-desktop">
-						<img src="images/GRAVITAS.svg" alt="toggle menu" class="menu" id="menu">
-					</a>
-					--->
-					<ul>
-					<!--
-						class="show-desktop hide-mobile" id="nav">
-						<li id="exit" class="exit-btn hide-desktop"><img src="images/exit.svg" alt="exit button">
-						</li>
-					--->
-						<li><a href="index.html">home</a></li>
-						<li><a href="#">about</a></li>
-						<li><a href="#">contact</a></li>
-					</ul>
-				</nav>
-		</header>
-		<section>
-			<h1>Diagnostics</h1>
-			<p class="subhead">This page displays the last 5 random numbers every 5 seconds.</p>
+            <nav>
+                <!--
+                <a href="#" class="hide-desktop">
+                    <img src="images/GRAVITAS.svg" alt="toggle menu" class="menu" id="menu">
+                </a>
+                --->
+                <ul>
+                    <!--
+                        class="show-desktop hide-mobile" id="nav">
+                        <li id="exit" class="exit-btn hide-desktop"><img src="images/exit.svg" alt="exit button">
+                        </li>
+                    --->
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h1>Diagnostics</h1>
+            <p class="subhead">This page displays the last 5 random numbers every 5 seconds.</p>
 
-		</section>
+        </section>
 
-	</div>
-	<div class="container">
-		<div class="selector-container">
-			<ul>
-				<li><button onclick="showZSU1()">ZSU1 Temp</button></li>
-				<li><button onclick="showZSU2()">ZSU2 Temp</button></li>
-				<li><button onclick="showZSU3()">ZSU3 Temp</button></li>
-				<li><button onclick="showZSU4()">ZSU4 Temp</button></li>
-				<li><button onclick="showESU1()">ESU1 Temp</button></li>
-				<li><button onclick="showESU2()">ESU2 Temp</button></li>
-			</ul>
+    </div>
+    <div class="container">
+        <div class="selector-container">
+            <ul>
+                <li><button onclick="showZSU1()" id="z-text1">Show ZSU1 Temp</button></li>
+                <li><button onclick="showZSU2()" id="z-text2">Show ZSU2 Temp</button></li>
+                <li><button onclick="showZSU3()" id="z-text3">Show ZSU3 Temp</button></li>
+                <li><button onclick="showZSU4()" id="z-text4">Show ZSU4 Temp</button></li>
+                <li><button onclick="showESU1()" id="e-text1">Show ESU1 Temp</button></li>
+                <li><button onclick="showESU2()" id="e-text2">Show ESU2 Temp</button></li>
+            </ul>
 
 
-		</div>
+        </div>
 
-	</div>
-	<div class="container">
-		<div class="chart-container">
-			<ul>
-				<li id = "zsu-1" style="display: none;"><p>Zone Sensor 1</p><canvas id="zoneSensor-1" height="300" width="600"></canvas></li>
-				<li id = "zsu-2" style="display: none;"><p>Zone Sensor 2</p><canvas id="zoneSensor-2" height="300" width="600"></canvas></li>
-				<li id = "zsu-3" style="display: none;"><p>Zone Sensor 3</p><canvas id="zoneSensor-3" height="300" width="600"></canvas></li>
-				<li id = "zsu-4" style="display: none;"><p>Zone Sensor 4</p><canvas id="zoneSensor-4" height="300" width="600"></canvas></li>
-				<li id = "esu-1" style="display: none;"><p>ESU Sensor 1</p><canvas id="ahuSensor-1" height="300" width="600"></canvas></li>
-				<li id = "esu-2" style="display: none;"><p>ESU Sensor 2</p><canvas id="ahuSensor-2" height="300" width="600"></canvas></li>
-			</ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <div class="container">
+        <div class="chart-container" id="charts">
+            <ul>
+                <li id="zsu-1" style="display: none; opacity: 0";><p>Zone Sensor 1</p><canvas id="zoneSensor-1" height="300" width="600"></canvas></li>
+                <li id="zsu-2" style="display: none;"><p>Zone Sensor 2</p><canvas id="zoneSensor-2" height="300" width="600"></canvas></li>
+                <li id="zsu-3" style="display: none;"><p>Zone Sensor 3</p><canvas id="zoneSensor-3" height="300" width="600"></canvas></li>
+                <li id="zsu-4" style="display: none;"><p>Zone Sensor 4</p><canvas id="zoneSensor-4" height="300" width="600"></canvas></li>
+                <li id="esu-1" style="display: none;"><p>ESU Sensor 1</p><canvas id="ahuSensor-1" height="300" width="600"></canvas></li>
+                <li id="esu-2" style="display: none;"><p>ESU Sensor 2</p><canvas id="ahuSensor-2" height="300" width="600"></canvas></li>
+            </ul>
 
-			<script src="js/main.js"></script>
-		</div>
-	</div>
-<script>
-function showZSU1() {
-	var x = document.getElementById("zoneSensor-1");
-	var y = document.getElementById("zsu-1");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
-}
-function showZSU2() {
-	var x = document.getElementById("zoneSensor-2");
-	var y = document.getElementById("zsu-2");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
-}
-function showZSU3() {
-	var x = document.getElementById("zoneSensor-3");
-	var y = document.getElementById("zsu-3");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
-}
-function showZSU4() {
-	var x = document.getElementById("zoneSensor-4");
-	var y = document.getElementById("zsu-4");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
-}
-function showESU1() {
-	var x = document.getElementById("ahuSensor-1");
-	var y = document.getElementById("esu-1");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
-}
-function showESU2() {
-	var x = document.getElementById("ahuSensor-2");
-	var y = document.getElementById("esu-2");
-	 if (y.style.display == "none"){
-		 x.style.display ="flex";
-		 y.style.display ="block";
-	 } else {
-		 x.style.display = "none";
-		 y.style.display = "none";
-	 }
+            <script src="js/main.js"></script>
+        </div>
+    </div>
+    <script>
+        function showZSU1() {
+            var x = document.getElementById("zoneSensor-1");
+            var y = document.getElementById("zsu-1");
+            if (y.style.display == "none") {
+                $('#zsu-1').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("z-text1").innerHTML = "Hide Zone Sensor 1";
+            } else {
+                $('#zsu-1').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("z-text1").innerHTML = "Show Zone Sensor 1";
+            }
+        }
+        function showZSU2() {
+            var x = document.getElementById("zoneSensor-2");
+            var y = document.getElementById("zsu-2");
+            if (y.style.display == "none") {
+                $('#zsu-2').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("z-text2").innerHTML = "Hide Zone Sensor 2";
+            } else {
+                $('#zsu-2').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("z-text2").innerHTML = "Show Zone Sensor 2";
+            }
+        }
+        function showZSU3() {
+            var x = document.getElementById("zoneSensor-3");
+            var y = document.getElementById("zsu-3");
+            if (y.style.display == "none") {
+                $('#zsu-3').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("z-text3").innerHTML = "Hide Zone Sensor 3";
+            } else {
+                $('#zsu-3').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("z-text3").innerHTML = "Show Zone Sensor 3";
+            }
+        }
+        function showZSU4() {
+            var x = document.getElementById("zoneSensor-4");
+            var y = document.getElementById("zsu-4");
+            if (y.style.display == "none") {
+                $('#zsu-4').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("z-text4").innerHTML = "Hide Zone Sensor 4";
+            } else {
+                $('#zsu-4').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("z-text4").innerHTML = "Show Zone Sensor 4";
+            }
+        }
+        function showESU1() {
+            var x = document.getElementById("ahuSensor-1");
+            var y = document.getElementById("esu-1");
+            if (y.style.display == "none") {
+                $('#esu-1').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("e-text1").innerHTML = "Hide ESU Sensor 1";
+            } else {
+                $('#esu-1').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("e-text1").innerHTML = "Show ESU Sensor 1";
+            }
+        }
+        function showESU2() {
+            var x = document.getElementById("ahuSensor-2");
+            var y = document.getElementById("esu-2");
+            if (y.style.display == "none") {
+                $('#esu-2').css('opacity', 1);
+                x.style.display = "flex";
+                y.style.display = "block";
+                document.getElementById("e-text2").innerHTML = "Hide ESU Sensor 2";
+            } else {
+                $('#esu-2').css('opacity', 0);
+                x.style.display = "none";
+                y.style.display = "none";
+                document.getElementById("e-text2").innerHTML = "Show ESU Sensor 2";
+            }
 
-}
+        }
 
-</script>
+    </script>
 
 </body>
 </html>
