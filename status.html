@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Smart HVAC System</title>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'></script>
+	<script src="d3.min.js?v=3.2.8"></script>
+	<style>
+		table{
+				border-collapse: collapse;
+				border: 2px black solid;
+		}
+
+		td {
+				border: 1px black solid;
+				padding: 5px;
+		}
+</style>
+
+
+  <style>
+  body {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .well {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 500px;
+  }
+  table {
+    font-size: 10px;
+    line-height: 10px;
+  }
+  td, th {
+    width: 33.3%;
+  }
+  label {
+    margin-bottom: 10px;
+  }
+</style>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
+
+			<nav>
+				<ul>
+					<li><a href="index.html">home</a></li>
+					<li><a href="#">about</a></li>
+					<li><a href="./index.html">menu</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<section>
+			<img src="images/gravitas.svg" alt="Front Logo" class="front_logo">
+
+			<h1>Status</h1>
+
+		</section>
+	</div>
+
+	<div class="container">
+		<div class="table-container" id = "FanStatus">
+			<script type="text/javascript"charset="utf-8">
+					d3.text("status2.csv", function(data) {
+							var parsedCSV = d3.csv.parseRows(data);
+
+							var container = d3.select("#FanStatus")
+									.append("table")
+
+									.selectAll("tr")
+											.data(parsedCSV).enter()
+											.append("tr")
+
+									.selectAll("td")
+											.data(function(d) { return d; }).enter()
+											.append("td")
+											.text(function(d) { return d; });
+					});
+			</script>
+
+		</div>
+			<div class ="table-container" id="StatusGlance">
+				<script type="text/javascript"charset="utf-8">
+						d3.text("status.csv", function(data) {
+								var parsedCSV = d3.csv.parseRows(data);
+
+								var container = d3.select("#StatusGlance")
+										.append("table")
+
+										.selectAll("tr")
+												.data(parsedCSV).enter()
+												.append("tr")
+
+										.selectAll("td")
+												.data(function(d) { return d; }).enter()
+												.append("td")
+												.text(function(d) { return d; });
+						});
+				</script>
+			</div>
+			<div class="table-container" id="ahuStatus">
+				<script type="text/javascript"charset="utf-8">
+						d3.text("status3.csv", function(data) {
+								var parsedCSV = d3.csv.parseRows(data);
+
+								var container = d3.select("#ahuStatus")
+										.append("table")
+
+										.selectAll("tr")
+												.data(parsedCSV).enter()
+												.append("tr")
+
+										.selectAll("td")
+												.data(function(d) { return d; }).enter()
+												.append("td")
+												.text(function(d) { return d; });
+						});
+				</script>
+			</div>
+			<div class="table-container" id="damperStatus">
+				<script type="text/javascript"charset="utf-8">
+						d3.text("status4.csv", function(data) {
+								var parsedCSV = d3.csv.parseRows(data);
+
+								var container = d3.select("#damperStatus")
+										.append("table")
+
+										.selectAll("tr")
+												.data(parsedCSV).enter()
+												.append("tr")
+
+										.selectAll("td")
+												.data(function(d) { return d; }).enter()
+												.append("td")
+												.text(function(d) { return d; });
+						});
+				</script>
+			</div>
+	</div>
+
+	<footer>
+		<div class="footer-container">
+			<div class="container">
+				<p class="school">Texas A&M University</p>
+				<p class="location">College Station, TX <br> USA</p>
+			</div>
+		</div>
+	</footer>
+
+
+</body>
+</html>

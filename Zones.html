@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Zones</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+
+
+
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
+
+				<nav>
+					<!--
+					<a href="#" class="hide-desktop">
+						<img src="images/GRAVITAS.svg" alt="toggle menu" class="menu" id="menu">
+					</a>
+					--->
+					<ul>
+					<!--
+						class="show-desktop hide-mobile" id="nav">
+						<li id="exit" class="exit-btn hide-desktop"><img src="images/exit.svg" alt="exit button">
+						</li>
+					--->
+						<li><a href="index.html">home</a></li>
+						<li><a href="#">about</a></li>
+						<li><a href="#">menu</a></li>
+					</ul>
+				</nav>
+		</header>
+		<section>
+			<h1>Zones</h1>
+			<p class="subhead">This page displays visualized data of zones over time</p>
+
+		</section>
+
+	</div>
+
+	</div>
+	<div class="container">
+		<div class="chart-container">
+			<ul>
+				<canvas id="zoneGraph" height="300" width="600"></canvas>
+			</ul>
+			<div class="selector-container">
+				<ul>
+					<select>
+					  <option value="zsu1">Zone 1</option>
+					  <option value="zsu2">Zone 2</option>
+					  <option value="zsu3">Zone 3</option>
+					  <option value="zsu4">Zone 4</option>
+					</select>
+					<select>
+						<option value="oneHour">Last Hour</option>
+						<option value="sixHours">Last 6 Hours</option>
+						<option value="twelveHours">Last 12 Hours</option>
+						<option value="oneDay">Last 24 Hours</option>
+					</select>
+				</ul>
+
+			</div>
+
+			<script src="js/mainv2.js"></script>
+		</div>
+	</div>
+</body>
+</html>
