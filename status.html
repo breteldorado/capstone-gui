@@ -67,7 +67,7 @@
 	<div class="container">
 		<div class="table-container" id = "FanStatus">
 			<script type="text/javascript"charset="utf-8">
-					d3.text("status2.csv", function(data) {
+					d3.text("data/status2.csv", function(data) {
 							var parsedCSV = d3.csv.parseRows(data);
 
 							var container = d3.select("#FanStatus")
@@ -87,7 +87,7 @@
 		</div>
 			<div class ="table-container" id="StatusGlance">
 				<script type="text/javascript"charset="utf-8">
-						d3.text("status.csv", function(data) {
+						d3.text("data/status.csv", function(data) {
 								var parsedCSV = d3.csv.parseRows(data);
 
 								var container = d3.select("#StatusGlance")
@@ -106,7 +106,7 @@
 			</div>
 			<div class="table-container" id="ahuStatus">
 				<script type="text/javascript"charset="utf-8">
-						d3.text("status3.csv", function(data) {
+						d3.text("data/status3.csv", function(data) {
 								var parsedCSV = d3.csv.parseRows(data);
 
 								var container = d3.select("#ahuStatus")
@@ -125,7 +125,7 @@
 			</div>
 			<div class="table-container" id="damperStatus">
 				<script type="text/javascript"charset="utf-8">
-						d3.text("status4.csv", function(data) {
+						d3.text("data/status4.csv", function(data) {
 								var parsedCSV = d3.csv.parseRows(data);
 
 								var container = d3.select("#damperStatus")

@@ -179,10 +179,10 @@ function makeChart(zones) {
    console.log("---------------------------------------------------");
  }
 
- d3.csv('./zoneData.csv')
+ d3.csv('data/zoneData.csv')
    .then(makeChart);
 function updateChart() {
-  d3.csv('./zoneData.csv')
+  d3.csv('data/zoneData.csv')
     .then(makeChart);
 }
 
