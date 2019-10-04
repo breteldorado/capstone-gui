@@ -49,7 +49,17 @@
                 <li><button onclick="showESU1()" id="e-text1">Show ESU1 Temp</button></li>
                 <li><button onclick="showESU2()" id="e-text2">Show ESU2 Temp</button></li>
             </ul>
-
+            <div class="multi-container">
+                <ul>
+                    <li id="configMulti"><button onclick="showMulti()" id="multi-text1">Show Multivariable Temps</button></li>
+                    <li id="s-zsu1"><button onclick="configMulti()" style= "display: none;" id="select-zsu1">Select ZSU1 </button></li>
+                    <li id="s-zsu2"><button onclick="configMulti()" style= "display: none;" id="select-zsu2">Select ZSU2</button></li>
+                    <li id="s-zsu3"><button onclick="configMulti()" style= "display: none;" id="select-zsu3">Select ZSU3</button></li>
+                    <li id="s-zsu4"><button onclick="configMulti()" style= "display: none;" id="select-zsu4">Select ZSU4</button></li>
+                    <li id="s-esu1"><button onclick="configMulti()" style= "display: none;" id="select-esu1">Select ESU1</button></li>
+                    <li id="s-esu2"><button onclick="configMulti()" style= "display: none;" id="select-esu2">Select ESU2</button></li>
+                </ul>
+            </div>
 
         </div>
 
@@ -58,18 +68,75 @@
     <div class="container">
         <div class="chart-container" id="charts">
             <ul>
-                <li id="zsu-1" style="display: none; opacity: 0";><p>Zone Sensor 1</p><canvas id="zoneSensor-1" height="300" width="600"></canvas></li>
+                <li id="zsu-1" style="display: none; opacity: 0" ;><p>Zone Sensor 1</p><canvas id="zoneSensor-1" height="300" width="600"></canvas></li>
                 <li id="zsu-2" style="display: none;"><p>Zone Sensor 2</p><canvas id="zoneSensor-2" height="300" width="600"></canvas></li>
                 <li id="zsu-3" style="display: none;"><p>Zone Sensor 3</p><canvas id="zoneSensor-3" height="300" width="600"></canvas></li>
                 <li id="zsu-4" style="display: none;"><p>Zone Sensor 4</p><canvas id="zoneSensor-4" height="300" width="600"></canvas></li>
                 <li id="esu-1" style="display: none;"><p>ESU Sensor 1</p><canvas id="ahuSensor-1" height="300" width="600"></canvas></li>
                 <li id="esu-2" style="display: none;"><p>ESU Sensor 2</p><canvas id="ahuSensor-2" height="300" width="600"></canvas></li>
+                <li id="multi-1" style="display: none;"><p>Multi Graph</p><canvas id="multiGraph" height="300" width="600"></canvas></li>
             </ul>
 
             <script src="js/main.js"></script>
         </div>
     </div>
     <script>
+        function showMulti() {
+            //on click, show selection buttons
+            var a = document.getElementById("select-zsu1");
+            var b = document.getElementById("select-zsu2");
+            var c = document.getElementById("select-zsu3");
+            var d = document.getElementById("select-zsu4");
+            var e = document.getElementById("select-esu1"); 
+            var f = document.getElementById("select-esu2");
+            var g = document.getElementById("multi-text1");
+            var multi = document.getElementById("multi-1");
+            var graph = document.getElementById("multiGraph");
+            $('#configMulti').click(function () {
+                if (multi.style.display == "none") {
+                    multi.style.display = "flex";
+                    graph.style.display = "flex";
+                    document.getElementById("multi-text1").innerHTML = "Hide Multivariable Temps";
+                } else {
+                    document.getElementById("multi-text1").innerHTML = "Show Multivariable Temps";
+                    multi.style.display = "none";
+                }
+                
+                if (a.style.display == "none") {
+                    a.style.display = "flex";
+                } else {
+                    a.style.display = "none";
+                }
+                if (b.style.display == "none") {
+                    b.style.display = "flex";
+                } else {
+                    b.style.display = "none";
+                }
+                if (c.style.display == "none") {
+                    c.style.display = "flex";
+                } else {
+                    c.style.display = "none";
+                }
+                if (d.style.display == "none") {
+                    d.style.display = "flex";
+                } else {
+                    d.style.display = "none";
+                }
+                if (e.style.display == "none") {
+                    e.style.display = "flex";
+                } else {
+                    e.style.display = "none";
+                }
+                if (f.style.display == "none") {
+                    f.style.display = "flex";
+                } else {
+                    f.style.display = "none";
+                }
+                
+
+            });
+
+        }
         function showZSU1() {
             var x = document.getElementById("zoneSensor-1");
             var y = document.getElementById("zsu-1");
@@ -161,6 +228,22 @@
             }
 
         }
+        //function showMulti() {
+        //    var x = document.getElementById("multiGraph");
+        //    var y = document.getElementById("multi-1");
+        //    if (y.style.display == "none") {
+        //        $('#multi-1').css('opacity', 1);
+        //        x.style.display = "flex";
+        //        y.style.display = "block";
+        //        document.getElementById("multi-text1").innerHTML = "Hide Multi Graph";
+        //    } else {
+        //        $('#mutli-1').css('opacity', 0);
+        //        x.style.display = "none";
+        //        y.style.display = "none";
+        //        document.getElementById("multi-text1").innerHTML = "Show Multi Graph";
+        //    }
+
+        //}
 
     </script>
 

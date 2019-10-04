@@ -10,6 +10,7 @@ function makeChart(zones) {
     var zone4t = zones.map(function(d) {return d.zone4T;});
     var zone4rh = zones.map(function(d) {return d.zone4RH;});
     var timeLabel = zones.map(function(d) {return d.Time;});
+    var zoneSelection = document.getElementById('zoneSelect').value;
 
     var options = {
         scales: {
@@ -24,6 +25,35 @@ function makeChart(zones) {
             }]
         }
     };
+
+    var dataSelect = null;
+    var labelSelect;
+    //pass zoneSelect
+    var zone = zoneSelection;
+    console.log(zoneSelection);
+    switch (zone) {
+      case "zsu1":
+      dataSelect = zone1t;
+      labelSelect = "ZSU 1 Temperature";
+      break;
+      case "zsu2":
+      dataSelect = zone2t;
+      labelSelect = "ZSU 2 Temperature";
+      break;
+      case "zsu3":
+      dataSelect = zone3t;
+      labelSelect = "ZSU 3 Temperature";
+      break;
+      case "zsu4":
+      dataSelect = zone4t;
+      labelSelect = "ZSU 4 Temperature";
+      break;
+      default:
+      dataSelect = 0;
+      labelSelect = "Check your case structure";
+    }
+    console.log("dataselect = " + (dataSelect.length));
+    //pass zonePeriod
     var chart = new Chart(ZONECHART, {
      type: 'line',
      options: options,
@@ -31,14 +61,23 @@ function makeChart(zones) {
        labels: timeLabel,
        datasets: [
          {
-           label: "Zone 1 Temperature",
-           data: zone1t
+           label: labelSelect,
+           data: dataSelect
          }
        ]
 
      }
    });
+   console.log(chart.data.datasets[0].data.length);
+   chart.reset();
+   chart.update();
  }
 
  d3.csv('./zoneData.csv')
    .then(makeChart);
+function updateChart() {
+  d3.csv('./zoneData.csv')
+    .then(makeChart);
+}
+
+document.getElementById("zoneSelect").addEventListener("change", updateChart);

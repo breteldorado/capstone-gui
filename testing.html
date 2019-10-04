@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<link rel="stylesheet" href="css/main.css">
+    <title>I love testing html</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+  </head>
+  <body>
+    <p>here is a graph</p>
+    <div class="container">
+      <div class="chart-container">
+        <ul>
+          <li id ="graph"><canvas id="graph1" width="600" height="300"></canvas></li>
+        </ul>
+
+      </div>
+
+    </div>
+<script>
+  var testChart = document.getElementById("graph1").getContext("2d");
+
+  var options = {
+      scales: {
+          yAxes: [{
+              display: true,
+              ticks: {
+                  suggestedMin: 68,    // minimum will be 0, unless there is a lower value.
+                  steps: 10,   // minimum value will be 0.
+                  stepValue: 1,
+                  max: 78
+              }
+          }]
+      }
+  };
+  var data1 = {
+      datasets: [
+          {
+              label: "ZSU 1 Temperature",
+              fill: false,
+              borderColor: "#bae755",
+              backgroundColor: "#e755ba",
+              pointBackgroundColor: "#e755ba",
+              pointBorderColor: "#55bae7",
+              pointHoverBackgroundColor: "#55bae7",
+              pointHoverBorderColor: "#55bae7",
+              pointRadius: 5
+
+          }
+        ]
+      };
+
+
+</script>
+
+  </body>
+</html>

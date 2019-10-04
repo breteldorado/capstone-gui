@@ -4,6 +4,7 @@ const CHART3 = document.getElementById("zoneSensor-3").getContext('2d');
 const CHART4 = document.getElementById("zoneSensor-4").getContext('2d');
 const CHART5 = document.getElementById("ahuSensor-1").getContext('2d');
 const CHART6 = document.getElementById("ahuSensor-2").getContext('2d');
+const CHART7 = document.getElementById("multiGraph").getContext('2d');
 
 var i = 0; //loop counter
 var tempHistory=[];
@@ -113,7 +114,13 @@ var data6 = {
             pointRadius: 5,
         }
       ]
-    };
+};
+var multiData = {
+    datasets: [
+        data1.datasets[0],
+        data2.datasets[0],
+    ]
+};
 
 //Create Linecharts
 var lineChart = [];
@@ -147,6 +154,10 @@ lineChart[5] = new Chart(CHART6, {
   data: data6,
   options: options
 });
+var multiChart = new Chart(CHART7, {
+    type: 'line',
+    options: options
+});
 function removeData(chart) { //removes element 1 of chart
   chart.data.labels.splice(0, 1);
   chart.data.datasets[0].data.splice(0, 1);
@@ -173,7 +184,33 @@ function sleep(ms){
 async function wait(ms){
   await sleep(ms);
 }
-function logTimeTemp(){
+function addMultiChart(data) {
+    multiChart.datasets.push(data);
+    multiChart.update();
+}
+function configMulti() {
+    //var a, b, c, d, e, f = 0;
+    $('#s-zsu1').click(function () {
+        addMultiChart(window.data1);
+    });
+    $('#s-zsu2').click(function () {
+        addMultiChart(window.data2);
+    });
+    $('#s-zsu3').click(function () {
+        addMultiChart(window.data3);
+    });
+    $('#s-zsu4').click(function () {
+        addMultiChart(window.data4);
+    });
+    $('#s-esu1').click(function () {
+        addMultiChart(window.data5);
+    });
+    $('#s-esu2').click(function () {
+        addMultiChart(window.data6);
+    });
+        }
+
+function updateCharts(){
   var currentTemp = [];
   var currentTime;
   var i = 0;
@@ -185,14 +222,14 @@ function logTimeTemp(){
   if (window.i > 4){
     for (j = 0; j < 6; j++) {
       addData(lineChart[j], currentTime, currentTemp[j]);
-      removeData(lineChart[j]);
+        removeData(lineChart[j]);
     }
   } else {
     for (j = 0; j < 6; j++) {
-      addData(lineChart[j], currentTime, currentTemp[j]);
+        addData(lineChart[j], currentTime, currentTemp[j]);
     }
-  }
-  window.i++;
-  }
-  logTimeTemp();
-  var myRefresh = setInterval(logTimeTemp, 5000); //repeats the function every 5 seconds
+    }
+    window.i++;
+}
+  updateCharts();
+  var myRefresh = setInterval(updateCharts, 5000); //repeats the function every 5 seconds
