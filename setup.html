@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HVAC - Setup</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/setup.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
+
+			<nav>
+				<!--
+				<a href="#" class="hide-desktop">
+					<img src="images/GRAVITAS.svg" alt="toggle menu" class="menu" id="menu">
+				</a>
+				--->
+				<ul>
+				<!--
+					class="show-desktop hide-mobile" id="nav">
+					<li id="exit" class="exit-btn hide-desktop"><img src="images/exit.svg" alt="exit button">
+					</li>
+				--->
+					<li><a href="index.html">home</a></li>
+					<li><a href="#">about</a></li>
+					<li><a href="./index.html">menu</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<section>
+			<img src="images/gravitas.svg" alt="Front Logo" class="front_logo">
+
+			<h1>Setup</h1>
+		</section>
+	</div>
+  <div class="setup-container">
+    <div class="zone-container">
+      <h3>Zones</h3>
+      <ul>
+      <div class="z1-container">
+Zone 1
+        <select id="z1Select" name="z1Select">
+          <option value="default">Required</option>
+          <option value="1">Enabled</option>
+          <option value="0">Disabled</option>
+        </select>
+      </div>
+      <div class="z2-container">
+Zone 2
+        <select id="z2Select" name="z2Select">
+          <option value="default">Required</option>
+          <option value="1">Enabled</option>
+          <option value="0">Disabled</option>
+        </select>
+      </div>
+      <div class="z3-container">
+Zone 3
+        <select id="z3Select" name="z3Select">
+          <option value="default">Required</option>
+          <option value="1">Enabled</option>
+          <option value="0">Disabled</option>
+        </select>
+      </div>
+      <div class="z4-container">
+Zone 4
+        <select name="z4Select" id="z4Select">
+          <option value="default">Required</option>
+          <option value="1">Enabled</option>
+          <option value="0">Disabled</option>
+        </select>
+      </div>
+      </ul>
+    </div>
+    <div class="damper-container"> <!-- IDEA: Need a disabled option for dampers... -->
+      <h3>Dampers</h3>
+      <ul>
+      <div class="d1-container">
+        <ul>
+Damper 1
+				<select class="d1Op" name="d1Op" id="d1Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d1Select" name="d1Select">
+          <option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d1Optional" name="d1Optional" id="d1Optional">
+					<option value="default">Optional</option>
+					<option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d2-container">
+        <ul>
+Damper 2
+				<select class="d2Op" name="d2Op" id="d2Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d2Select" name="d2Select">
+          <option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d2Optional" name="d2Optional" id="d2Optional">
+					<option value="default">Optional</option>
+					<option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d3-container">
+        <ul>
+Damper 3
+				<select class="d3Op" name="d3Op" id="d3Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d3Select" name="d3Select">
+          <option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d3Optional" name="d3Optional" id="d3Optional">
+					<option value="default">Optional</option>
+					<option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d4-container">
+        <ul>
+Damper 4
+				<select class="d4Op" name="d4Op" id="d4Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d4Select" name="d4Select">
+          <option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d4Optional" name="d4Optional" id="d4Optional">
+					<option value="default">Optional</option>
+          <option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d5-container">
+        <ul>
+Damper 5
+				<select class="d5Op" name="d5Op" id="d5Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d5Select" name="d5Select">
+          <option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d5Optional" name="d5Optional" id="d5Optional">
+					<option value="default">Optional</option>
+          <option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d6-container">
+        <ul>
+Damper 6
+				<select class="d6Op" name="d6Op" id="d6Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d6Select" name="d6Select">
+					<option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d6Optional" name="d6Optional" id="d6Optional">
+					<option value="default">Optional</option>
+          <option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d7-container">
+        <ul>
+Damper 7
+				<select class="d7Op" name="d7Op" id="d7Operation">
+					<option value="default">Operation</option>
+					<option value="0">Disabled</option>
+					<option value="1">Normally Open</option>
+					<option value="2">Normally Closed</option>
+				</select>
+        <select id="d7Select" name="d7Select">
+					<option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d7Optional" name="d7Optional" id="d7Optional">
+					<option value="default">Optional</option>
+          <option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+      <div class="d8-container">
+        <ul>
+Damper 8
+					<select class="d8Op" name="d8Op" id="d8Operation">
+						<option value="default">Operation</option>
+						<option value="0">Disabled</option>
+						<option value="1">Normally Open</option>
+						<option value="2">Normally Closed</option>
+					</select>
+				<select id="d8Select" name="d8Select">
+					<option value="default">Zone Location</option>
+          <option value="1">Zone 1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+        </select>
+        <select class="d8Optional" name="d8Optional" id="d8Optional">
+					<option value="default">Optional</option>
+          <option value="1">Normal</option>
+          <option value="2">No Heat</option>
+          <option value="3">No Cool</option>
+        </select>
+        </ul>
+      </div>
+
+      </ul>
+    </div>
+    <div class="cooling-container">
+      <h3>Cooling</h3>
+      <ul>
+System
+      <select class="coolingSystem" name="coolingSystem" id="coolingSystem">
+        <option value="default">Required</option>
+        <option value="1">Single-Stage</option>
+        <option value="2">Two-Stage</option>
+        <option value="0">Disabled</option>
+      </select>
+    </ul>
+    <ul>
+Anticipator
+      <select class="AnticipatorC" name="AnticipatorC" id="anticipatorC">
+        <option value="default">Required</option>
+        <option value="1:00:00">1 hour</option>
+        <option value="2:00:00">2 hour</option>
+        <option value="3:00:00">3 hour</option>
+      </select>
+      </ul>
+      <ul>
+Max Run Time
+        <select class="coolingRunT" name="coolingRunT" id="coolingRunT">
+          <option value="default">Required</option>
+          <option value="00:00:15">15 Minute</option>
+          <option value="00:00:30">30 Minutes</option>
+          <option value="1:00:00">1 Hour</option>
+        </select>
+        </ul>
+        <ul>
+Min Cycle Time
+          <select class="coolingCycleT" name="coolingCycleT" id="coolingCycleT">
+            <option value="default">Required</option>
+            <option value="00:01:00">1 Minute</option>
+            <option value="00:05:00">5 Minutes</option>
+            <option value="00:10:00">10 Minutes</option>
+          </select>
+          </ul>
+    </div>
+    <div class="heating-container">
+      <h3>Heating</h3>
+      <ul>
+System
+      <select class="heatingSystem" name="heatingSystem" id="heatingSystem">
+        <option value="default">Required</option>
+        <option value="1">Single-Stage</option>
+        <option value="2">Two-Stage</option>
+        <option value="0">Disabled</option>
+      </select>
+    </ul>
+    <ul>
+Anticipator
+      <select class="AnticipatorH" name="AntipatorH" id="anticipatorH">
+				<option value="default">Required</option>
+        <option value="1:00:00">1 hour</option>
+        <option value="2:00:00">2 hour</option>
+        <option value="3:00:00">3 hour</option>
+      </select>
+      </ul>
+      <ul>
+Max Run Time
+        <select class="heatingRunT" name="heatingRunT" id="heatingRunT">
+					<option value="default">Required</option>
+          <option value="00:00:15">15 Minute</option>
+          <option value="00:00:30">30 Minutes</option>
+          <option value="1:00:00">1 Hour</option>
+        </select>
+        </ul>
+        <ul>
+Min Cycle Time
+          <select class="heatingCycleT" name="heatingCycleT" id="heatingCycleT">
+						<option value="default">Required</option>
+            <option value="00:01:00">1 Minute</option>
+            <option value="00:05:00">5 Minutes</option>
+            <option value="00:10:00">10 Minutes</option>
+          </select>
+        </ul>
+        <ul>
+Over Temperature
+          <select class="overTemp" name="overTemp" id="overTemp">
+            <option value="default">Required</option>
+            <option value="5">+5 degrees</option>
+            <option value="10">+10 degrees</option>
+            <option value="15">+15 degrees</option>
+          </select>
+        </ul>
+    </div>
+		<div class="button-container">
+			<button onclick="onSubmit()">Click me</button>
+		</div>
+  </div>
+
+  </body>
+</html>
