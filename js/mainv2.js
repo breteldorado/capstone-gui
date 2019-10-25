@@ -179,10 +179,11 @@ function makeChart(zones) {
    console.log("---------------------------------------------------");
  }
 
- d3.csv('data/zoneData.csv')
+let csv_data = 'https://gist.githubusercontent.com/breteldorado/6991ad3cc8f1e1014c386d4166158c70/raw/4b86e23ff7e394e42d6d2b5ddaba75a91f24c636/ZoneData.csv'
+ d3.csv(csv_data)
    .then(makeChart);
 function updateChart() {
-  d3.csv('data/zoneData.csv')
+  d3.csv(csv_data) //local data is okay for deployment
     .then(makeChart);
 }
 

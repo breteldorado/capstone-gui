@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Smart HVAC System</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="index.html"><img src="images/gravitas2.png" alt="gravitas logo" class="logo"></a>
+
+			<nav>
+				<!--
+				<a href="#" class="hide-desktop">
+					<img src="images/GRAVITAS.svg" alt="toggle menu" class="menu" id="menu">
+				</a>
+				--->
+				<ul>
+				<!--
+					class="show-desktop hide-mobile" id="nav">
+					<li id="exit" class="exit-btn hide-desktop"><img src="images/exit.svg" alt="exit button">
+					</li>
+				--->
+					<li><a href="index.html">home</a></li>
+					<li><a href="#">about</a></li>
+					<li><a href="./index.html">menu</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<section>
+			<img src="images/gravitas.svg" alt="Front Logo" class="front_logo">
+
+			<h1>Scheduling</h1>
+		</section>
+	</div>
+  <div class="all-container">
+    <div class="select-schedule">
+      <h2>Select Schedule: </h2>
+      <select class="selectSch" name="selectSch" id="selectSch">
+        <option value="default">Select Schedule</option>
+        <option value="SummerSch">Summer</option>
+        <option value="WinterSch">Winter</option>
+        <option value="VacSch">Vacation</option>
+      </select>
+    </div>
+    <div class="add-schedule">
+			<ul>
+				<li>
+      <p class="entry">Day</p>
+      <form id="form1">
+        <div style="padding:10px">
+          <select id="selectDay" multiple="multiple">
+            <option value="M">Monday</option>
+            <option value="T">Tuesday</option>
+            <option value="W">Wednesday</option>
+            <option value="TR">Thursday</option>
+            <option value="F">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+          </select>
+        </div>
+      </form>
+		</li>
+      <script type="text/javascript">
+        $(function() {
+
+          $('#selectDay').multiselect({
+          includeSelectAllOption: true
+        });
+      });
+      </script>
+			<li>
+      <p class="entry">Zones</p>
+      <form id="form2">
+        <div style="padding:10px">
+          <select id="selectZ" multiple="multiple">
+            <option value="Z1">Zone 1</option>
+            <option value="Z2">Zone 2</option>
+            <option value="Z3">Zone 3</option>
+            <option value="Z4">Zone 4</option>
+          </select>
+        </div>
+      </form>
+		</li>
+			<script type="text/javascript">
+				$(function() {
+
+					$('#selectZ').multiselect({
+					includeSelectAllOption: true
+				});
+			});
+			</script>
+			<li>
+      <p class="entry">Start Time</p>
+      <form id="form3">
+        <div style="padding:10px">
+          <select id="startTime">
+          </select>
+        </div>
+      </form>
+		</li>
+		<li>
+			<p class="entry">End Time</p>
+			<form id="form4">
+				<div style="padding:10px">
+					<select id="endTime">
+					</select>
+				</div>
+			</form>
+		</li>
+			<script type="text/javascript">
+			// adding options to start time
+			var x = 5; //minutes interval
+			var times = []; // time array
+			var tt = 0; // start time
+			var ap = ['AM', 'PM']; // AM-PM
+			var startTime = document.getElementById('startTime');
+			var endTime = document.getElementById('endTime');
+
+			//loop to increment the time and push results in array
+			for (var i=0;tt<24*60; i++) {
+			  var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
+			  var mm = (tt%60); // getting minutes of the hour in 0-55 format
+			  times[i] = ("0" + (hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2) + ap[Math.floor(hh/12)]; // pushing data in array in [00:00 - 12:00 AM/PM format]
+			  tt = tt + x;
+				let sOpt = document.createElement('option');
+				let eOpt = document.createElement('option');
+				sOpt.value = times[i];
+				sOpt.innerHTML = times[i];
+				eOpt.value = times[i];
+				eOpt.innerHTML = times[i];
+				startTime.appendChild(sOpt);
+				endTime.appendChild(eOpt);
+			}
+			</script>
+		<li>
+			<p class="entry">Low Setpoint</p>
+			<form id="form5">
+				<div style="padding:10px">
+					<select id="loSet">
+						<option value="default">None Selected</option>
+					</select>
+				</div>
+			</form>
+		</li>
+		<li>
+			<p class="entry">High Setpoint</p>
+			<form id="form6">
+				<div style="padding:10px">
+					<select id="hiSet">
+						<option value="default">None Selected</option>
+					</select>
+				</div>
+			</form>
+		</li>
+		<script type="text/javascript">
+		var lowSet = document.getElementById('loSet');
+		var hiSet = document.getElementById('hiSet');
+		for (var i = 50; i < 91; i++) {
+			let loS = document.createElement('option');
+			let hiS = document.createElement('option');
+			loS.value = i;
+			loS.innerHTML = i;
+			hiS.value = i;
+			hiS.innerHTML = i;
+			lowSet.appendChild(loS);
+			hiSet.appendChild(hiS);
+		}
+		</script>
+		<li>
+		<input type="button" id="applyRule" value="Apply" />
+		</li>
+		</ul>
+    </div>
+
+    <div class="remove-schedule">
+
+    </div>
+  </div>
+
+
+  </body>
+  </html>

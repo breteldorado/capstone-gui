@@ -1,4 +1,3 @@
-
 function onSubmit() {
   //pull values
   var z1Select = document.getElementById('z1Select').value;
@@ -104,40 +103,40 @@ function onSubmit() {
   //if any default, display an error
   //zonesetup.z1,z2,z3,z4 == "default"
 
-    for (var i = 0; i < data.zoneSetup.length; i++) {
-      if (data.zoneSetup[i] == "default") {
-        onError();
-        errorCheck = 1;
-      }
+  for (var i = 0; i < data.zoneSetup.length; i++) {
+    if (data.zoneSetup[i] == "default") {
+      onError();
+      errorCheck = 1;
     }
-    //damperSetup.d1-d8.operation == "default"
-    for (i = 0; i < data.damperSetup.length; i++) {
-      if (data.damperSetup[i].operation == "default") {
-        onError();
-        errorCheck = 1;
-      } else if ((data.damperSetup[i].location == "default") && (data.damperSetup[i].operation != "disabled")) {
-        onError();
-        errorCheck = 1;
-      } else if ((data.damperSetup[i].optional == "default") && (data.damperSetup[i].operation != "disabled")) {
-        onError();
-        errorCheck = 1;
-      }
+  }
+  //damperSetup.d1-d8.operation == "default"
+  for (i = 0; i < data.damperSetup.length; i++) {
+    if (data.damperSetup[i].operation == "default") {
+      onError();
+      errorCheck = 1;
+    } else if ((data.damperSetup[i].location == "default") && (data.damperSetup[i].operation != "disabled")) {
+      onError();
+      errorCheck = 1;
+    } else if ((data.damperSetup[i].optional == "default") && (data.damperSetup[i].operation != "disabled")) {
+      onError();
+      errorCheck = 1;
     }
-    //cooling.system, anticipator, runT, CycleT == "default"
-    for (i = 0; i < data.cooling.length; i++) {
-      if (data.cooling[i] == "default") {
-        onError();
-        errorCheck = 1;
-      }
+  }
+  //cooling.system, anticipator, runT, CycleT == "default"
+  for (i = 0; i < data.cooling.length; i++) {
+    if (data.cooling[i] == "default") {
+      onError();
+      errorCheck = 1;
     }
-    //heating.system, anticipator, runT, CycleT == "default"
-    for (i = 0; i < data.heating.length; i++) {
-      if (data.heating[i] == "default") {
-        onError();
-        errorCheck = 1;
-      }
+  }
+  //heating.system, anticipator, runT, CycleT == "default"
+  for (i = 0; i < data.heating.length; i++) {
+    if (data.heating[i] == "default") {
+      onError();
+      errorCheck = 1;
     }
-    // if no default values exist, write the file
+  }
+  // if no default values exist, write the file
   if (errorCheck == 0) {
     console.log("I am about to enter the writefile function");
     writeMyFile(data);
@@ -174,7 +173,7 @@ function writeMyFile(data) {
   }
   //optional
   for (i = 0; i < data.damperSetup.length; i++) {
-    config.push(data.damperSetup[i].location + "\n");
+    config.push(data.damperSetup[i].optional + "\n");
   }
   //cooling
   for (i = 0; i < data.cooling.length; i++) {
@@ -184,6 +183,7 @@ function writeMyFile(data) {
   for (i = 0; i < data.heating.length; i++) {
     config.push(data.heating[i] + "\n");
   }
+  //combine all data into array, then consolidate in string
   var dataArray = [header];
   for (var i = 0; i < parameter.length; i++) {
     dataArray.push(parameter[i]);
@@ -191,9 +191,12 @@ function writeMyFile(data) {
   }
   var dataString = dataArray.join("");
   console.log(dataString);
-  console.log("length of dataArray = " + dataArray.length);
-  console.log("length of config = " + config.length);
-  console.log("length of parameter = " + parameter.length);
+  //write data string to file
+  const fs = require('fs');
+  fs.writeFile('Output.txt', dataString, (err) => {
+    if (err) throw err;
+  });
+
   //write csv file
 }
 
